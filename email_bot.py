@@ -40,7 +40,7 @@ def send_email(receiver,subject,message):
     email["Subject"]=subject
     email.set_content(message)
     server.send_message(email)
-    print("Voila! Your email is successfully sent!!!!")
+   
 
 def get_email_info():
     talk('To whom you want to send email?')
@@ -52,5 +52,12 @@ def get_email_info():
     talk('Tell me the body of the email')
     message=get_info()
     send_email(receiver,subject,message)
+    print("Voila! Your email is successfully sent!!!!")
+    talk('Voila! Your email is successfully sent!!!!')
+    talk('Do you want to send more email?')
+    send_more=get_info()
+    if 'yes' in send_more:
+        get_email_info()
+    
 
 get_email_info()
